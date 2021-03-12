@@ -1,0 +1,161 @@
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+body{
+	background-color: #efefef;
+}
+.header{
+	width: 100%;
+	height: 160px;
+	min-width: 1200px;
+	background-color: #000;
+}
+.navheader{
+	height: 100px;
+	width: 100%;
+	color: #fff;
+	line-height: 100px;
+	text-align: center;
+	font-size: 30px;
+	text-shadow: 10px 5px 5px white;
+	font-family: 'Comic Sans MS', cursive;
+}
+.nav{
+	height: 60px;
+	width: 100%;
+	background: rgba(255,255,255,.2);
+}
+.navlist{
+	width: 1200px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+}
+.link{
+	width: 100px;
+	height: 60px;
+	color: #fff;
+	line-height: 60px;
+	text-align: center;
+}
+.link a{
+	color: #fff;
+	text-decoration: none;
+}
+.search{
+	width: 300px;
+	height: 60px;
+	display: flex;
+	background-color: #000;
+}
+.search input{
+	width: 200px;
+	height: 60px;
+	border: none;
+	outline: none;
+	font-size: 15px;
+	color:#efefef69;
+	background: rgba(255,255,255,0.3);
+	padding: 0 10px;
+}
+.search button{
+	width: 100px;
+	height: 60px;
+	border: none;
+	outline: none;
+	display: flex;
+	justify-content:center;
+	align-items: center;
+	background: rgba(255,255,255,.2); 	
+	color: #fff;
+	font-size: 15px;
+}
+.search button .icon{
+	width: 30px;
+	height: 30px;
+	background-image: url(../img/search.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 30px 30px;
+}
+
+.content{
+	width: 1200px;
+	height: auto;
+	display: flex;
+	margin: 0 auto 50px;
+}
+.book{
+	width: 1000px;
+	height: auto;
+	display: flex;
+	flex-wrap: wrap;
+	background-color: #fff;
+}
+.bookList{
+	width: 225px;
+	height: auto;
+	margin: 5px 0 10px;
+	position: relative;
+	text-align: center;
+}
+.ad{
+	width: 300px;
+	height: auto;
+}
+.bookList a{
+	text-decoration: none;
+	color: #333;
+}
+.bookList img{
+	width: 220px;
+	height: 300px;
+	padding: 0 5px;
+}
+.bookList h3{
+	font-size: 18px;
+	font-family: '微软雅黑';
+	border-bottom: 1px dashed #ccc;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	margin: 5px 0;
+}
+.bookList p{
+	font-size: 16px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	margin: 0 0 5px;
+}
+.bookList span{
+	position: absolute;
+	left: 8px;
+	top: 0;
+	background-color: #666;
+	color: #fff;
+}
+
+
+.pageList{
+	width: 1400px;
+	height: 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.pageBtns a{
+	padding: 5px 10px ;
+	background-color: #ccc;
+	margin: 5px;
+	color: #666;
+	text-decoration: none;
+}
+
+.pageBtns a.active{
+	background-color: #666;
+	color: #fff;
+}

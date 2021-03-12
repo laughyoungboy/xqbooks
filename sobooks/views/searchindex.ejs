@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="/css/style.css"/>
+	</head>
+	<body>
+		<div class="header">
+			<div class="navheader">XqSobooks</div>
+			<div class="nav">
+				<div class="navlist">
+					<div class="link"><a href="/">首页</a></div>
+					
+					<% for(let i=0;i<cataorys.length;i++){ %>
+						<div class="link"><a href="/cataorys/<%= cataorys[i].id %>/page/1"><%= cataorys[i].cataory %></a></div>
+					<% } %>
+
+					<div class="search">
+						<input type="ext" id="search" onblur="if(this.value=='')this.value='直接输入书名或作者按回车即可搜索...';" onfocus="if(this.value=='直接输入书名或作者按回车即可搜索...')this.value='';" value="直接输入书名或作者按回车即可搜索...">
+						<!-- <input type="text" placeholder="直接输入书名或作者按回车即可搜索..."/> --></input>
+						<button class="searchBtn"><span class="icon"></span><span class="text">搜索</span></button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="content">
+			<div class="book">
+				<% for(let i=0;i<books.length;i++){ %>
+				<div class="bookList">
+					<a href="/books/<%-books[i].id%>">
+						<img src="<%- books[i].bookimg %>" >
+						<h3 class="bookName"><%- books[i].bookname %></h3>
+						<p class="author"><%- books[i].author %></p>
+						<span class="catory"><%- books[i].cataory %></span>
+					</a>
+				</div>
+				<%}%>
+			</div>
+			<div class="ad">
+				<img src="https://tpc.googlesyndication.com/simgad/11123356258384329839?sqp=4sqPyQQ7QjkqNxABHQAAtEIgASgBMAk4A0DwkwlYAWBfcAKAAQGIAQGdAQAAgD-oAQGwAYCt4gS4AV_FAS2ynT4&rs=AOga4qkNjeYFQQtX6f_hzVFyjvyUGLo_bg" >
+			</div>
+		</div>
+        <div class="pageList">
+			<div class="pageBtns">
+				<% if(pageid>1){ %>
+					<a href="/search/<%=searchKey%>/page/<%=(pageid-1)%>">上一页</a>
+				<% } %>
+
+				<% for(let i = startPage;i<=endPage;i++){ %>
+					<a <% if(pageid==i){ %> class="active" <%}%>  href="/search/<%=searchKey%>/page/<%=i%>"><%=i%></a>
+
+				<%}%>
+
+				<% if(pageid<allPage){ %>
+					<a href="/search/<%=searchKey%>/page/<%=(pageid+1)%>">下一页</a>
+				<% } %>
+			</div>
+			<div class="allConut">共<%=allPage%>页</div>
+		</div>
+        <script>
+            var searchBtn = document.querySelector(".searchBtn")
+			var search =document.querySelector("#search")
+            searchBtn.onclick = function(e){
+                let value =document.querySelector("#search").value
+                location.href = "/search/"+value+"/page/1"
+            }
+			search.onkeypress = function(e){
+				if(e.keyCode == 13){
+					console.log(e)
+					let value =document.querySelector("#search").value
+                	location.href = "/search/"+value+"/page/1"
+				}
+			}
+        </script>
+	</body>
+</html>

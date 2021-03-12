@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+        <link rel="stylesheet" type="text/css" href="/css/style.css"/>
+        <link rel="stylesheet" href="/css/share.min.css">
+        <link rel="stylesheet" href="/css/style1.css">
+        <style>
+            .book h2{
+                width: 100%;
+            }
+        </style>
+	</head>
+	<body>
+		<div class="header">
+			<div class="navheader">XqSobooks</div>
+			<div class="nav">
+				<div class="navlist">
+					<div class="link"><a href="/">首页</a></div>
+					
+					<% for(let i=0;i<cataorys.length;i++){ %>
+						<div class="link"><a href="/cataorys/<%= cataorys[i].id %>/page/1"><%= cataorys[i].cataory %></a></div>
+					<% } %>
+
+					<div class="search">
+						<input type="ext" id="search" onblur="if(this.value=='')this.value='直接输入书名或作者按回车即可搜索...';" onfocus="if(this.value=='直接输入书名或作者按回车即可搜索...')this.value='';" value="直接输入书名或作者按回车即可搜索...">
+						<!-- <input type="text" placeholder="直接输入书名或作者按回车即可搜索..."/> --></input>
+						<button class="searchBtn"><span class="icon"></span><span class="text">搜索</span></button>
+					</div>
+				</div>
+			</div>
+        </div>
+        <div class="content">
+            <div class="book">
+                <%- book.brief %>
+            </div>
+            <div class="ad">
+                <img src="https://tpc.googlesyndication.com/simgad/11123356258384329839?sqp=4sqPyQQ7QjkqNxABHQAAtEIgASgBMAk4A0DwkwlYAWBfcAKAAQGIAQGdAQAAgD-oAQGwAYCt4gS4AV_FAS2ynT4&rs=AOga4qkNjeYFQQtX6f_hzVFyjvyUGLo_bg" >
+            </div>
+        </div>
+
+        <script>
+
+            var searchBtn = document.querySelector(".searchBtn")
+			var search =document.querySelector("#search")
+            searchBtn.onclick = function(e){
+                let value =document.querySelector("#search").value
+                location.href = "/search/"+value+"/page/1"
+            }
+			search.onkeypress = function(e){
+				if(e.keyCode == 13){
+					console.log(e)
+					let value =document.querySelector("#search").value
+                	location.href = "/search/"+value+"/page/1"
+				}
+			}            
+
+            document.querySelector('body > div.content > div.book > .dltable > tbody > tr:nth-child(1) > td:nth-child(1) > p').style.width = "65px"
+            var delDiv = document.querySelector("body > div.content > div.book > div.open-message");
+            delDiv.parentElement.removeChild(delDiv)
+            delDiv = document.querySelector("body > div.content > div.book > table > tbody > tr:nth-child(3) > td > a:nth-child(2)")
+            delDiv.parentElement.removeChild(delDiv)
+    
+    
+            delDiv = document.querySelector(".e-secret");
+            delDiv.parentElement.removeChild(delDiv)
+            delDiv = document.querySelector(".dltable~img");
+            delDiv.parentElement.removeChild(delDiv)
+            delDiv = document.querySelector(".article-social");
+            delDiv.parentElement.removeChild(delDiv)
+            delDiv = document.querySelector("body > div.content > div > div.book > table > tbody > tr:nth-child(3) > td > a:nth-child(2)")
+            delDiv.parentElement.removeChild(delDiv)
+            
+            
+        </script>
+	</body>
+</html>
